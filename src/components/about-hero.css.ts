@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css"
-import { theme } from "../theme.css"
+import { theme } from "../styles/theme.css"
 import { media } from "./ui.css"
 
 // specific maxWidths are to support design and
