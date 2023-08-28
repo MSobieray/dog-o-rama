@@ -84,10 +84,7 @@ interface ImageProps extends BaseProps {
   image: ImageDataLike
 }
 
-export function Image(
-  { alt, image, ...props }: ImageProps,
-  ref: React.LegacyRef<HTMLDivElement>
-) {
+export function Image({ alt, image, ...props }: ImageProps) {
   return <GatsbyImage image={getImage(image)} alt={alt} {...props} />
 }
 

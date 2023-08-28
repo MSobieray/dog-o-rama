@@ -1,20 +1,20 @@
-import { graphql } from "gatsby"
 import * as React from "react"
+import { graphql } from "gatsby"
 import type { PageProps } from "gatsby"
+import Layout from "../../components/common/layout"
 import {
+  Body,
   Container,
   Image,
   Section,
-  SuperHeading,
-  Body,
   Subhead,
+  SuperHeading,
 } from "../../components/common/atoms"
+import SEOHead from "../../components/common/head"
 import {
   CharacteristicsList,
   FactList,
 } from "../../components/sections/dog_breed_page"
-import SEOHead from "../../components/common/head"
-import Layout from "../../components/common/layout"
 
 // These typed key values might be to strict
 // and could prevent adding any number of values to the CMS
@@ -66,32 +66,30 @@ export default function DogBreedPage(props: PageProps<DogBreedData>) {
   } = dogBreed
 
   return (
-    <>
-      <Layout>
-        <SuperHeading center={true}>{dogBreed.title}</SuperHeading>
-        <Container width="fullWidth">
-          <Image
-            image={dogBreed.image.gatsbyImageData}
-            alt={dogBreed.image.description}
-          />
-        </Container>
-        <Container>
-          {/* TODO: add ability to render markdown  */}
-          <Section>
-            <Subhead>Summary</Subhead>
-            <Body>{summary}</Body>
-          </Section>
-        </Container>
-        <Container width="fullWidth" backgroundTheme="active">
-          <Section>
-            <Container>
-              <CharacteristicsList characteristics={characteristics} />
-              <FactList facts={facts} />
-            </Container>
-          </Section>
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <SuperHeading center={true}>{dogBreed.title}</SuperHeading>
+      <Container width="fullWidth">
+        <Image
+          image={dogBreed.image.gatsbyImageData}
+          alt={dogBreed.image.description}
+        />
+      </Container>
+      <Container>
+        <Section>
+          <Subhead>Summary</Subhead>
+          <Body>{summary}</Body>
+        </Section>
+      </Container>
+      <Container width="fullWidth" backgroundTheme="active">
+        <Section>
+          <Container>
+            {/* TODO: add ability to render markdown  */}
+            <CharacteristicsList characteristics={characteristics} />
+            <FactList facts={facts} />
+          </Container>
+        </Section>
+      </Container>
+    </Layout>
   )
 }
 

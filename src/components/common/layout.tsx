@@ -6,7 +6,7 @@ interface LayoutProps {
   children?: React.ReactNode
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
