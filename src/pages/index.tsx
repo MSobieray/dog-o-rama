@@ -58,7 +58,7 @@ export const query = graphql`
       title
       heroImages {
         gatsbyImageData(
-          height: 450
+          height: 600
           placeholder: DOMINANT_COLOR
           layout: FULL_WIDTH
         )
