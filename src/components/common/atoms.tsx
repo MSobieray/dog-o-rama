@@ -160,10 +160,19 @@ export function ImageSwapWrapper(props) {
 interface IconProps extends BaseProps {
   variant?: styles.IconColorVariants
   iconName: string
+  className
 }
-export function Icon({ iconName, variant = "white", ...props }: IconProps) {
+export function Icon({
+  iconName,
+  variant = "white",
+  className,
+  ...props
+}: IconProps) {
   return (
-    <span className={`${styles.icon[variant]} material-symbols`} {...props}>
+    <span
+      className={`${styles.icon[variant]} material-symbols ${className}`}
+      {...props}
+    >
       {iconName}
     </span>
   )

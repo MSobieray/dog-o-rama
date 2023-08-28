@@ -309,7 +309,7 @@ export const imageSwapWrapper = style({
 })
 
 globalStyle(`${imageSwapWrapper} [data-gatsby-image-wrapper]`, {
-  maxHeight: "66vh",
+  height: "66vh",
 })
 
 export type IconColorVariants =
