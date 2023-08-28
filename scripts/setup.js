@@ -1,6 +1,5 @@
 const fs = require("fs")
 const path = require("path")
-const spaceImport = require("contentful-import")
 const inquirer = require("inquirer")
 const chalk = require("chalk")
 const data = require("./data.json")
@@ -110,13 +109,10 @@ inquirer
       return { spaceId, managementToken }
     }
   )
-  .then(({ spaceId, managementToken }) =>
-    spaceImport({ spaceId, managementToken, content: data })
-  )
   .then((_, error) => {
     console.log(
       `All set! You can now run ${chalk.yellow(
-        "yarn start"
+        "npm start"
       )} to see it in action.`
     )
   })
