@@ -1,9 +1,7 @@
 import * as React from "react"
-import Layout from "../components/layout"
-// import { Container, Box, Heading, Text, Link, Flex } from "../components/ui"
-// import ChevronRight from "../components/chevron-right"
+import Layout from "../components/common/layout"
 import * as styles from "../components/sections/404_page/404.css"
-import SEOHead from "../components/head"
+import SEOHead from "../components/common/head"
 import { Link } from "gatsby"
 
 export default function NotFound() {

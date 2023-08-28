@@ -1,8 +1,8 @@
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
-import Layout from "../components/layout"
-import SEOHead from "../components/head"
+import Layout from "../components/common/layout"
+import SEOHead from "../components/common/head"
 import { Container, Section, SuperHeading } from "../components/common/atoms"
 import { BreedList, HeroSwap } from "../components/sections/home_page"
 

@@ -1,5 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css"
-import globalTheme from "../styles/global-theme-contract"
+import globalTheme from "../../styles/global-theme-contract"
 
 export const header = style({
   padding: globalTheme.space[2],

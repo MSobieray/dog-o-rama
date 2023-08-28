@@ -47,7 +47,13 @@ export const query = graphql`
     title
     slug
     image {
-      gatsbyImageData(width: 500)
+      gatsbyImageData(
+        layout: CONSTRAINED
+        resizingBehavior: CROP
+        cropFocus: CENTER
+        width: 600
+        height: 300
+      )
       description
     }
   }

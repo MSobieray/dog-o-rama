@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import * as React from "react"
 import { header, logo } from "./header.css"
-import { Icon } from "./common/atoms"
+import { Icon } from "./atoms"
 function Header() {
   return (
     <header className={header}>
