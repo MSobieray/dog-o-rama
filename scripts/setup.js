@@ -2,7 +2,6 @@ const fs = require("fs")
 const path = require("path")
 const inquirer = require("inquirer")
 const chalk = require("chalk")
-const data = require("./data.json")
 
 const argv = require("yargs-parser")(process.argv.slice(2))
 
