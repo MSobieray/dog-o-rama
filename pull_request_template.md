@@ -1,5 +1,11 @@
-**THIS IS A GATSBY STARTER TEMPLATE REPOSITORY**
+## Notes 👩‍💻👨‍💻
 
-**Pull requests to this repo will not be accepted. If you would like to contribute, please open a PR in the source repository:**
+<!-- Please as notes about the PR and what issues it solves or feature it adds -->
 
-<https://github.com/gatsbyjs/homepage-starters>
+## Testing
+
+<!-- How do you recommend testing the PR -->
+
+## Checklist for the author
+
+<!-- Add a checklist for reminders about what the author should do before merging this PR -->

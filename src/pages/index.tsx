@@ -1,60 +1,72 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import * as sections from "../components/sections"
-import Fallback from "../components/fallback"
-import SEOHead from "../components/head"
+import { PageProps, graphql } from "gatsby"
+import { ImageDataLike } from "gatsby-plugin-image"
+import Layout from "../components/common/layout"
+import SEOHead from "../components/common/head"
+import { Container, Section, SuperHeading } from "../components/common/atoms"
+import { BreedList, HeroSwap } from "../components/sections/home_page"
 
-interface HomepageProps {
-  data: {
-    homepage: {
-      id: string
-      title: string
-      description: string
-      image: { id: string; url: string }
-      blocks: sections.HomepageBlock[]
-    }
+type HomepageProps = {
+  contentfulDogHomePage: {
+    title: string
+    heroImages: [
+      {
+        gatsbyImageData: ImageDataLike
+        description: string
+        id: string
+      }
+    ]
+    content: [
+      {
+        id: string
+        slug: string
+        title: string
+        image: {
+          description: string
+          gatsbyImageData: ImageDataLike
+        }
+      }
+    ]
   }
 }
 
-export default function Homepage(props: HomepageProps) {
-  const { homepage } = props.data
+export default function Homepage(props: PageProps<HomepageProps>) {
+  const { contentfulDogHomePage: homepage } = props.data
+  const { content: dogbreeds } = homepage
 
   return (
     <Layout>
-      {homepage.blocks.map((block) => {
-        const { id, blocktype, ...componentProps } = block
-        const Component = sections[blocktype] || Fallback
-        return <Component key={id} {...(componentProps as any)} />
-      })}
+      <SuperHeading center={true}>{homepage.title}</SuperHeading>
+      <HeroSwap images={homepage.heroImages} />
+      <Section>
+        <Container>
+          <BreedList listData={dogbreeds} />
+        </Container>
+      </Section>
     </Layout>
   )
 }
-export const Head = (props: HomepageProps) => {
-  const { homepage } = props.data
+
+export const Head = (props) => {
+  const { contentfulDogHomePage: homepage } = props.data
   return <SEOHead {...homepage} />
 }
+
 export const query = graphql`
   {
-    homepage {
-      id
+    contentfulDogHomePage {
       title
-      description
-      image {
+      heroImages {
+        gatsbyImageData(
+          height: 600
+          placeholder: DOMINANT_COLOR
+          layout: FULL_WIDTH
+        )
+        description
         id
-        url
       }
-      blocks: content {
-        id
-        blocktype
-        ...HomepageHeroContent
-        ...HomepageFeatureListContent
-        ...HomepageCtaContent
-        ...HomepageLogoListContent
-        ...HomepageTestimonialListContent
-        ...HomepageBenefitListContent
-        ...HomepageStatListContent
-        ...HomepageProductListContent
+      content {
+        ...DogBreeds
       }
     }
   }
